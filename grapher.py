@@ -13,18 +13,21 @@ def convert_to_percentages(main_tree):
         author_sums[author] = sum_all
 
     percents = {}       # result dictionary
-    # already_added = set()  # set of connections already added
+
+    def retrieve_value(auth: str, neigh: str) -> int:
+        if auth in main_tree and neigh in main_tree[auth]:
+            return main_tree[auth][neigh]
+        else:
+            print("Warning relation {} -> {} not found".format(auth, neigh))
+            return 1
 
     for a, sub_tree in main_tree.items():  # a stands for author of a message
         percents[a] = {}
         for n, _ in sub_tree.items():  # n stands for neighbors
-            # if (author, neighbor) in already_added or (neighbor, author) in already_added:
-            #    continue  # this connection already added
-            top = (main_tree[a][n] + main_tree[n][a])
+            top = (retrieve_value(a, n) + retrieve_value(n, a))
             bottom = (author_sums[a] + author_sums[n])
             edge_calc = (top/bottom) ** .5
             percents[a][n] = edge_calc
-            # already_added.add((author, neighbor))
 
     return percents
 
