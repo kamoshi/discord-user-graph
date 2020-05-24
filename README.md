@@ -1,11 +1,13 @@
 # Generate a graph of user interactions in a discord servers!
 This uses a very naive method: checking messages near each other to generate the model.
 
+
 ### Requirements:
 - python 3.x (3.7+ preferred)
 - discord.py
 - matplotlib
 - networkx
+
 
 ## How to use
 ### Downloading data:
