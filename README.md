@@ -1,6 +1,5 @@
-# Generate a graph of user interactions in a discord servers!
-This uses a very naive method: checking messages near each other to generate the model.
-
+# Generate a graph of user interactions in a discord server!
+This uses a very naive method: check messages near each other to generate the model.
 
 ### Requirements:
 - python 3.x (3.7+ preferred)
@@ -8,10 +7,9 @@ This uses a very naive method: checking messages near each other to generate the
 - matplotlib
 - networkx
 
-
 ## How to use
 ### Downloading data:
-1. Fill in channel_ids and your bot auth token.
+1. Fill in channel_ids and your bot auth token in downloader.py
 2. Run downloader.py
 3. Wait for completion
 4. The script should output file result.json on completion
